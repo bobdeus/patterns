@@ -10,6 +10,15 @@ namespace Patterns
     {
         static void Main(string[] args)
         {
+            Patterns patterns = new Patterns();
+            patterns.StateExample();
+        }
+    }
+    class Patterns
+    {
+        public void StateExample()
+        {
+            StateExample stateExample = new StateExample();
         }
     }
 }
