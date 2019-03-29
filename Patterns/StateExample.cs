@@ -18,8 +18,6 @@ namespace Patterns
             Console.WriteLine(State.GetCase(testString));
             State = State.Switch();
             Console.WriteLine(State.GetCase(testString));
-
-            Console.ReadKey();
         }
 
         public interface ICaseState

@@ -18,7 +18,9 @@ namespace Patterns
     {
         public void StateExample()
         {
-            StateExample stateExample = new StateExample();
+            //StateExample stateExample = new StateExample();
+            ObserverExample observerExample = new ObserverExample();
+            Console.ReadKey();
         }
     }
 }
