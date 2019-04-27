@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 
 namespace Patterns
@@ -62,7 +61,7 @@ namespace Patterns
     {
         private int State { get; set; }
 
-        readonly List<IObserver> listOfObservers = new List<IObserver>();
+        private readonly List<IObserver> listOfObservers = new List<IObserver>();
         public Subject()
         {
         }
