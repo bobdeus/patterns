@@ -35,6 +35,7 @@ namespace Patterns
 
             Fight(characters, weapons, troll);
         }
+
         internal void Fight(List<Character> characters, List<Weapon> weapons, Character attacked)
         {
             for (int i = 0; i < 100; i++)
@@ -58,6 +59,11 @@ namespace Patterns
                 }
             }
         }
+    }
+
+    internal abstract class Weapon
+    {
+        internal abstract void UseWeapon(Character targetCharacter);
     }
 
     internal class Unarmed : Weapon
@@ -127,11 +133,6 @@ namespace Patterns
         {
             Health -= damage;
         }
-    }
-
-    internal abstract class Weapon
-    {
-        internal abstract void UseWeapon(Character targetCharacter);
     }
 
     internal class King : Character
