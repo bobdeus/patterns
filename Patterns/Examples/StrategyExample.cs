@@ -24,7 +24,7 @@ namespace Patterns
             var unarmed = new Unarmed();
             var healingStaff = new HealingStaff();
 
-            List<Weapon> weapons = new List<Weapon>()
+            List<Weapon> weapons = new List<Weapon>
             {
                 club,
                 knife,
@@ -36,7 +36,7 @@ namespace Patterns
             Fight(CreateRandomCharacters(), weapons, troll);
         }
 
-        internal void Fight(List<Character> characters, List<Weapon> weapons, Character targetCharacter)
+        private static void Fight(List<Character> characters, List<Weapon> weapons, Character targetCharacter)
         {
             while (targetCharacter.Health > 0)
             {
@@ -136,7 +136,8 @@ namespace Patterns
     {
         internal Weapon Weapon { get; set; }
         internal int Health { get; set; } = 100;
-        internal void TakeDamage(int damage)
+
+        private void TakeDamage(int damage)
         {
             Health -= damage;
         }
