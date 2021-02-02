@@ -44,7 +44,9 @@ namespace Patterns
                 {
                     EquipRandomWeapon(character, weapons);
                     character.UseWeapon(targetCharacter);
-                    Console.WriteLine($"{character.GetType().Name} used a {character.Weapon.GetType().Name} on {targetCharacter.GetType().Name} and its health is: {targetCharacter.Health}");
+                    Spell fire = new Fire();
+                    int damageDone = character.CastSpell(targetCharacter, fire);
+                    Console.WriteLine($"{character.GetType().Name} used a {character.Weapon.GetType().Name} on {targetCharacter.GetType().Name} and did {damageDone} spell damage and its health is: {targetCharacter.Health}");
                     if (targetCharacter.Health <= 0)
                     {
                         break;
@@ -77,6 +79,23 @@ namespace Patterns
             }
             return characters;
         }
+    }
+
+    internal class Fire : Spell
+    {
+        //This can be modified to provide different functionality as level increases
+        private double FireDamageLevel { get; set; } = 0.15;
+        public override int Cast(Character targetCharacter)
+        {
+            int damageToDo = (int)(targetCharacter.Health * FireDamageLevel);
+            targetCharacter.Health -= damageToDo;
+            return damageToDo;
+        }
+    }
+
+    internal abstract class Spell
+    {
+        public abstract int Cast(Character targetCharacter);
     }
 
     internal abstract class Weapon
@@ -144,6 +163,11 @@ namespace Patterns
         internal void UseWeapon(Character targetCharacter)
         {
             targetCharacter.TakeDamage(Weapon.Damage);
+        }
+
+        public int CastSpell(Character targetCharacter, Spell spell)
+        {
+            return spell.Cast(targetCharacter);
         }
     }
 
