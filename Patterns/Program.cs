@@ -12,9 +12,9 @@ namespace Patterns
             }
 
             Patterns patterns = new Patterns();
-            //patterns.StateExample();
+            patterns.StateExample();
             //patterns.ObserverExample();
-            patterns.StrategyExample();
+            // patterns.StrategyExample();
         }
     }
 

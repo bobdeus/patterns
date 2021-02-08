@@ -4,73 +4,57 @@ namespace Patterns
 {
     internal class StateExample
     {
-        internal ICaseState State { get; set; }
         public StateExample()
         {
-            Console.WriteLine("State Pattern Example");
-            string testString = "What's my case?";
-
-            State = new LowerState();
-            Console.WriteLine(State.GetCase(testString));
-            State = State.Switch();
-            Console.WriteLine(State.GetCase(testString));
-            State = State.Switch();
-            Console.WriteLine(State.GetCase(testString));
-            State = State.Switch();
-            Console.WriteLine(State.GetCase(testString));
+            RunGame();
         }
 
-        public interface ICaseState
+        private void RunGame()
         {
-            ICaseState Switch();
-            string GetCase(string properCase);
-        }
-
-        private class LowerState : ICaseState
-        {
-            public ICaseState Switch()
+            var currentKeyPressed = "";
+            var previousKeyPressed = "";
+            var timeBeforeThatPressed = "";
+            var times = 1;
+            while (true)
             {
-                return new UpperState();
-            }
-
-            public string GetCase(string properCase)
-            {
-                return properCase.ToLower();
-            }
-        }
-
-        private class UpperState : ICaseState
-        {
-            public ICaseState Switch()
-            {
-                return new MixedState();
-            }
-
-            public string GetCase(string properCase)
-            {
-                return properCase.ToUpper();
-            }
-        }
-
-        private class MixedState : ICaseState
-        {
-            public ICaseState Switch()
-            {
-                return new LowerState();
-            }
-
-            public string GetCase(string properCase)
-            {
-                string newCaseReturn = "";
-                for (int i = 0; i < properCase.Length; i++)
+                currentKeyPressed = GetKey();
+                if (CheckCombo(currentKeyPressed, previousKeyPressed, timeBeforeThatPressed))
                 {
-                    if (i % 2 == 0)
-                        newCaseReturn += properCase[i].ToString().ToLower();
-                    else
-                        newCaseReturn += properCase[i].ToString().ToUpper();
+                    Console.WriteLine("You Win!");
+                    return;
                 }
-                return newCaseReturn;
+                previousKeyPressed = currentKeyPressed;
+                if (times++ == 1)
+                {
+                    timeBeforeThatPressed = previousKeyPressed;
+                }
+
+                //Reset the check
+                if (times == 3) times = 1;
             }
+        }
+
+        //LeftArrow, RightArrow, A
+        private static bool CheckCombo(string currKeyPressed, string previousKeyPressed, string timeBeforeThatPressed)
+        {
+            if (timeBeforeThatPressed.Equals("LeftArrow") && previousKeyPressed.Equals("RightArrow") && currKeyPressed.Equals("A"))
+            {
+                return true;
+            }
+            else if(timeBeforeThatPressed.Equals("LeftArrow") && previousKeyPressed.Equals("RightArrow") && currKeyPressed.Equals("A") && currKeyPressed.Equals("B"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static string GetKey()
+        {
+            var keyPressed = Console.ReadKey().Key.ToString();
+            Console.Clear();
+            Console.WriteLine($"You pressed the {keyPressed} key.");
+            return keyPressed;
         }
     }
 }
