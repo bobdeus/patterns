@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\BuilderExample.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Examples\ObserverExample.cs" />
     <Compile Include="Program.cs" />

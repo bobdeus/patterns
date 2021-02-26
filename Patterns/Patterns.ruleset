@@ -4,7 +4,6 @@
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1000" Action="Error" />
     <Rule Id="CA1001" Action="Error" />
-    <Rule Id="CA1002" Action="Error" />
     <Rule Id="CA1003" Action="Error" />
     <Rule Id="CA1004" Action="Error" />
     <Rule Id="CA1005" Action="Error" />
@@ -24,7 +23,6 @@
     <Rule Id="CA1020" Action="Error" />
     <Rule Id="CA1021" Action="Error" />
     <Rule Id="CA1023" Action="Error" />
-    <Rule Id="CA1024" Action="Error" />
     <Rule Id="CA1025" Action="Error" />
     <Rule Id="CA1026" Action="Error" />
     <Rule Id="CA1027" Action="Error" />
@@ -136,7 +134,6 @@
     <Rule Id="CA1819" Action="Error" />
     <Rule Id="CA1820" Action="None" />
     <Rule Id="CA1821" Action="Error" />
-    <Rule Id="CA1822" Action="Error" />
     <Rule Id="CA1823" Action="Error" />
     <Rule Id="CA1824" Action="None" />
     <Rule Id="CA1900" Action="Error" />
@@ -559,7 +556,6 @@
     <Rule Id="CA1016" Action="Error" />
     <Rule Id="CA1017" Action="Error" />
     <Rule Id="CA1018" Action="Error" />
-    <Rule Id="CA1024" Action="Error" />
     <Rule Id="CA1027" Action="Error" />
     <Rule Id="CA1028" Action="Error" />
     <Rule Id="CA1030" Action="Error" />
@@ -610,7 +606,6 @@
     <Rule Id="CA1814" Action="Error" />
     <Rule Id="CA1815" Action="Error" />
     <Rule Id="CA1819" Action="Error" />
-    <Rule Id="CA1822" Action="Error" />
     <Rule Id="CA1823" Action="Error" />
     <Rule Id="CA2007" Action="Error" />
     <Rule Id="CA2119" Action="Error" />

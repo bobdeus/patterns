@@ -1,4 +1,5 @@
 ﻿using System;
+using Examples;
 
 namespace Patterns
 {
@@ -12,9 +13,10 @@ namespace Patterns
             }
 
             Patterns patterns = new Patterns();
-            //patterns.StateExample();
-            //patterns.ObserverExample();
-            patterns.StrategyExample();
+            // patterns.StateExample();
+            // patterns.ObserverExample();
+            // patterns.StrategyExample();
+            patterns.BuilderExample();
         }
     }
 
@@ -36,6 +38,12 @@ namespace Patterns
         {
             StrategyExample strategyExample = new StrategyExample();
             Console.ReadKey();
+        }
+
+        public void BuilderExample()
+        {
+            BuilderExample builderExample = new BuilderExample();
+            builderExample.Run();
         }
     }
 }
